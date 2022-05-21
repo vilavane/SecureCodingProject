@@ -23,7 +23,7 @@ fun set_of :: "intvl list \<Rightarrow> nat set" where
 
 fun add :: "nat \<Rightarrow> intvl list \<Rightarrow> intvl list" where
 "add n [] = [Bd n n]"
-|"add n [Bd x y] = (if n=x-1 then [Bd n y] else False"
-
+|"add n [Bd x y] = (if n=x-1 then [Bd n y] else (if n<x-1 then (Bd n n)#[Bd x y] else (if n=y+1 then [Bd x n] else (if n>y+1 then [Bd x y]@[Bd n n] else [Bd x y]))))"
+|"add a (Ub vb # va) = (if a=vb-1 then Ub a"
 
 end
